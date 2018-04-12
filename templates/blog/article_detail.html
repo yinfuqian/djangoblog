@@ -40,11 +40,11 @@
             {% endif %}
 
         </div><!-- #content -->
-    {% comment %}个人网站备案不允许有评论互动等功能,暂时关闭评论功能{% endcomment %}
-       {% comment %} {% if article.comment_status == "o" %}
+        {% comment %}个人网站备案不允许有评论互动等功能,暂时关闭评论功能{% endcomment %}
+        {% comment %}{% if article.comment_status == "o" %}
 
             {% load comments_tags %}
-                {% load_post_comment article from %}
+            {% load_post_comment article from %}
             {% include 'comments/tags/comment_list.html' %}
             {% if user.is_authenticated %}
                 {% include 'comments/tags/post_comment.html' %}
@@ -54,11 +54,11 @@
                             href="{% url "account:login" %}?next={{ request.get_full_path }}">登录</a>后发表评论。</h3>
 
                     {% load oauth_tags %}
-                    {% load_oauth_applications request%}
+                    {% load_oauth_applications request %}
 
                 </div>
-            {% endif %}{% endcomment %}
-        {% endif %}
+            {% endif %}
+        {% endif %}{% endcomment %}
     </div><!-- #primary -->
 
 {% endblock %}
